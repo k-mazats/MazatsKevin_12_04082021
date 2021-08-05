@@ -33,6 +33,6 @@
 	font-weight: 500;
 	line-height: 24px;
 	color: #ffffff;
-	transform: rotate(-90deg);
+	transform: rotate(-90deg) translateX(-25px);
 	white-space: nowrap;
 }
