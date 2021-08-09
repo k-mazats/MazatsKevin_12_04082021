@@ -1,6 +1,6 @@
 .profile{
   width: calc(100% - 117px);
-
+  padding: 2rem;
 }
 .profile-stats{
   width: 100%;

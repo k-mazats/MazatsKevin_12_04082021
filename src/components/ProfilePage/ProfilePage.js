@@ -1,8 +1,9 @@
 import './ProfilePage.css';
 import ProfileHeader from '../ProfileHeader/ProfileHeader';
 import ProfileKeyStats from '../ProfileKeyStats/ProfileKeyStats';
+import ProfileDaily from '../ProfileDaily/ProfileDaily';
 
-import { USER_MAIN_DATA } from '../../api/mocks/user';
+import { USER_MAIN_DATA, USER_ACTIVITY } from '../../api/mocks/user';
 
 const ProfilePage = () => {
 	return (
@@ -10,6 +11,7 @@ const ProfilePage = () => {
 			<ProfileHeader user={USER_MAIN_DATA}></ProfileHeader>
 			<div className="profile-stats">
 				<ProfileKeyStats user={USER_MAIN_DATA}></ProfileKeyStats>
+				<ProfileDaily dailyActivity={USER_ACTIVITY}></ProfileDaily>
 			</div>
 		</div>
 	);
