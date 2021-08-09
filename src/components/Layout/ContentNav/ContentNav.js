@@ -5,7 +5,7 @@ import { ReactComponent as BikeIcon } from '../../../assets/svg/content-nav-bike
 import { ReactComponent as LiftIcon } from '../../../assets/svg/content-nav-lift-icon.svg';
 const ContentNav = () => {
 	return (
-		<div className="side-bar">
+		<aside className="side-bar">
 			<nav className="content-nav">
 				<ul className="content-nav__list">
 					<li>
@@ -31,7 +31,7 @@ const ContentNav = () => {
 				</ul>
 			</nav>
 			<div className="copyright">Copyright, SportSee 2020</div>
-		</div>
+		</aside>
 	);
 };
 

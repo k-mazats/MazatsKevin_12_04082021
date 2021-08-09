@@ -4,7 +4,7 @@ const MainNav = () => {
 		<nav className="main-nav">
 			<ul className="main-nav__list">
         <li>Accueil</li>
-        <li>Profil</li>
+        <li>Profile</li>
         <li>Réglage</li>
         <li>Communauté</li>
       </ul>

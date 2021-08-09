@@ -1,0 +1,12 @@
+.profile{
+  width: calc(100% - 117px);
+
+}
+.profile-stats{
+  width: 100%;
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: repeat(4, 124px);
+  row-gap: 30px;
+  column-gap: 31px;
+}
