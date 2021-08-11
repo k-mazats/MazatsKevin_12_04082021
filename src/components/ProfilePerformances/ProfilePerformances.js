@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import {
 	Radar,
 	RadarChart,
@@ -7,20 +8,38 @@ import {
 	ResponsiveContainer,
 } from 'recharts';
 
-import './ProfilePerformances.css'
+import './ProfilePerformances.css';
 
 const ProfilePerformances = (props) => {
+	const [outerRadius, setOuterRadius] = useState();
 	const getKind = (kindId) => {
-		const kind = props.performances.kind[kindId]
+		const kind = props.performances.kind[kindId];
 		return kind.charAt(0).toUpperCase() + kind.slice(1);
-	}
+	};
+	const getOuterRadius = () => {
+		if (window.matchMedia('(max-width: 1250px)').matches) {
+			setOuterRadius('35%');
+		} else if (window.matchMedia('(max-width: 1450px)').matches) {
+			setOuterRadius('40%');
+		} else if (window.matchMedia('(max-width: 1550px)').matches) {
+			setOuterRadius('50%');
+		} else if (window.matchMedia('(max-width: 1650px)').matches) {
+			setOuterRadius('70%');
+		} else{
+			setOuterRadius('80%');
+		}
+	};
+	useEffect(() => {
+		getOuterRadius();
+		window.addEventListener('resize', getOuterRadius);
+	}, []);
 	return (
 		<div className="profile-performances">
 			<ResponsiveContainer>
 				<RadarChart
 					// cx="50%"
 					// cy="50%"
-					outerRadius="30%"
+					outerRadius={outerRadius}
 					data={props.performances.data}
 				>
 					<PolarGrid />
@@ -29,7 +48,7 @@ const ProfilePerformances = (props) => {
 						stroke="#FFFFFF"
 						tickLine={false}
 						axisLine={false}
-						tick={{fontSize: 12, lineHeight: 24}}
+						tick={{ fontSize: 12, lineHeight: 24 }}
 						tickFormatter={getKind}
 					/>
 					<PolarRadiusAxis
@@ -38,12 +57,16 @@ const ProfilePerformances = (props) => {
 						tick={false}
 						axisLine={false}
 					/>
-					<Radar dataKey="value" stroke="#FFFFFF" fill="#FFFFFF" />
+					<Radar
+						dataKey="value"
+						fill="#FF0101
+"
+						fillOpacity={0.7}
+					/>
 				</RadarChart>
 			</ResponsiveContainer>
 		</div>
 	);
 };
-
 
 export default ProfilePerformances;

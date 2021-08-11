@@ -4,35 +4,42 @@
 	box-shadow: 0px 2px 4px 0px #00000005;
 	display: flex;
 	height: 124px;
-	padding: 32px;
+	align-items: center;
 }
 .profile-key-stats__stat-icon {
-	width: 60px;
+	min-width: 60px;
 	height: 60px;
 	border-radius: 6px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-  margin-right: 24px;
+	margin: 0 24px;
 }
 .profile-key-stats__stat-infos {
 	display: flex;
 	align-content: center;
 	flex-wrap: wrap;
+	width: calc(100% - 108px);
 }
 .profile-key-stats__stat-count {
+	width: 100%;
 	font-size: 20px;
-
 	font-weight: 700;
 	line-height: 24px;
 	color: #282d30;
 	width: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 .profile-key-stats__stat-name {
+	width: 100%;
 	font-size: 14px;
-
 	font-weight: 500;
 	line-height: 24px;
 	color: #74798c;
 	width: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
