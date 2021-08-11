@@ -1,0 +1,7 @@
+.profile-average{
+  grid-row: 3 / span 2;
+  grid-column: 1;
+  border-radius: 5px;
+  color: #FFFFFF;
+  background: #FF0000;
+}

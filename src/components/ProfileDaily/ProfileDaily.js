@@ -15,12 +15,21 @@ const ProfileDaily = (props) => {
 		let day = date.split('-')[2];
 		return day.charAt(0) === '0' ? day.replace('0', '') : day;
 	};
+	const getTickCount = () => {
+		let steps = props.dailyActivity.sessions.map((session) => session.kilogram)
+		let tickCount =
+			steps.reduce((a, b) => Math.max(a, b)) -
+			steps.reduce((a, b) => Math.min(a, b)) + 3;
+			return tickCount
+	}
 	return (
 		<div className="profile-daily">
 			<ResponsiveContainer>
 				<BarChart
 					data={props.dailyActivity.sessions}
 					margin={{ top: 23, right: 29, bottom: 23, left: 43 }}
+					barGap={4}
+					barSize={7}
 				>
 					<CartesianGrid strokeDasharray="1" vertical={false} />
 
@@ -44,8 +53,10 @@ const ProfileDaily = (props) => {
 						tickLine={false}
 						tickSize={45}
 						domain={['dataMin - 1', 'dataMax + 1']}
+						tickCount={getTickCount()}
+						interval={0}
 					/>
-					<Tooltip formatter={(value, name, props) => value} />
+					<Tooltip/>
 					<Legend
 						verticalAlign="top"
 						align="right"
@@ -59,7 +70,6 @@ const ProfileDaily = (props) => {
 						dataKey="kilogram"
 						yAxisId="right"
 						fill="#282D30"
-						maxBarSize={7}
 						name="Poids"
 						unit="kg"
 						radius={[3.5, 3.5, 0, 0]}
@@ -68,7 +78,6 @@ const ProfileDaily = (props) => {
 						dataKey="calories"
 						yAxisId="left"
 						fill="#E60000"
-						maxBarSize={7}
 						name="Calories brûlées"
 						unit="kCal"
 						radius={[3.5, 3.5, 0, 0]}

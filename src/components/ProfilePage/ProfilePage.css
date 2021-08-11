@@ -1,12 +1,16 @@
-.profile{
-  width: calc(100% - 117px);
-  padding: 2rem;
+.profile {
+	width: calc(100% - 117px);
+	padding: 2rem;
+	display: flex;
+	flex-flow: column;
 }
-.profile-stats{
-  width: 100%;
-  display:grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: repeat(4, 124px);
-  row-gap: 30px;
-  column-gap: 31px;
+.profile-stats {
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	/* grid-template-rows: repeat(4, minmax(124px, 1fr) ); */
+	row-gap: 30px;
+	column-gap: 31px;
+  /* flex: 1; */
+	grid-template-rows: repeat(4, 124px);
 }
