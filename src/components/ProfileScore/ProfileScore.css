@@ -1,7 +1,30 @@
-.profile-score{
-  border-radius: 5px;
-  background: #FBFBFB;
-  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0,02);
-  grid-row: 3 / span 2;
-  grid-column: 3;
+.profile-score {
+	border-radius: 5px;
+	background: #fbfbfb;
+	box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0, 02);
+	grid-row: 3 / span 2;
+	grid-column: 3;
+	position: relative;
+	box-shadow: 0px 2px 4px 0px #00000005;
+}
+.profile-score__header {
+	position: absolute;
+	top: 24px;
+	left: 30px;
+	font-size: 15px;
+	line-height: 24px;
+	color: #20253a;
+}
+.profile-score__legend-value {
+	font-weight: 700;
+	font-size: 26px;
+	line-height: 26px;
+	text-align: center;
+}
+.profile-score__legend-text {
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 26px;
+	text-align: center;
+	color: #838798;
 }

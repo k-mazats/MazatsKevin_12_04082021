@@ -3,6 +3,7 @@
 	padding: 2rem;
 	display: flex;
 	flex-flow: column;
+	background: #E5E5E5;
 }
 .profile-stats {
 	width: 100%;

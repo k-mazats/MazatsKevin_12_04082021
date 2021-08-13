@@ -1,3 +1,17 @@
 .profile-header{
   width:100%;
 }
+.profil-header__hello{
+  font-size: 48px;
+  line-height: 24px;
+  margin: 20px 0;
+}
+.profile-header__name{
+  color: #FF0000;
+}
+
+.profil-header__greetings{
+  font-size: 18px;
+  line-height: 24px;
+  margin-bottom: 20px;
+}

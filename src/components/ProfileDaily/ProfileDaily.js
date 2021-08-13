@@ -11,23 +11,23 @@ import {
 
 import './ProfileDaily.css';
 const ProfileDaily = (props) => {
+	const getTooltip = (value, name, props) => {
+		return [`${value} `, null, props];
+	};
 	const getDay = (date) => {
 		let day = date.split('-')[2];
 		return day.charAt(0) === '0' ? day.replace('0', '') : day;
 	};
-	const getTickCount = () => {
-		let steps = props.dailyActivity.sessions.map((session) => session.kilogram)
-		let tickCount =
-			steps.reduce((a, b) => Math.max(a, b)) -
-			steps.reduce((a, b) => Math.min(a, b)) + 3;
-			return tickCount
-	}
+	const renderLegend = (value, entry) => {
+		return <span style={{ color: '#9B9EAC', fontSize: 14 }}>{value}</span>;
+	};
 	return (
 		<div className="profile-daily">
+			<div className="profile-daily__header">Activité quotidienne</div>
 			<ResponsiveContainer>
 				<BarChart
 					data={props.dailyActivity.sessions}
-					margin={{ top: 23, right: 29, bottom: 23, left: 43 }}
+					margin={{ top: 24, right: 29, bottom: 24, left: 43 }}
 					barGap={4}
 					barSize={7}
 				>
@@ -38,6 +38,7 @@ const ProfileDaily = (props) => {
 						tickFormatter={getDay}
 						tickLine={false}
 						tickSize={16}
+						tick={{ fill: '#9B9EAC', fontSize: 14 }}
 					/>
 
 					<YAxis
@@ -53,17 +54,25 @@ const ProfileDaily = (props) => {
 						tickLine={false}
 						tickSize={45}
 						domain={['dataMin - 1', 'dataMax + 1']}
-						tickCount={getTickCount()}
-						interval={0}
+						tick={{ fill: '#9B9EAC', fontSize: 14 }}
+						// tickCount={4}
+						// interval={0}
 					/>
-					<Tooltip/>
+					<Tooltip
+						formatter={getTooltip}
+						labelStyle={{ display: 'none' }}
+						itemStyle={{ textAlign: 'center', color: '#FFFFFF', fontSize: 7 }}
+						contentStyle={{ background: '#E60000', border: 'none' }}
+					/>
 					<Legend
 						verticalAlign="top"
 						align="right"
 						iconType="circle"
 						iconSize={8}
+						formatter={renderLegend}
 						wrapperStyle={{
 							paddingBottom: '47px',
+							fill: '#FFFFFF',
 						}}
 					/>
 					<Bar

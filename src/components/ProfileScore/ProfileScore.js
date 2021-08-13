@@ -1,6 +1,6 @@
 import {
 	RadialBarChart,
-  PolarAngleAxis,
+	PolarAngleAxis,
 	RadialBar,
 	Legend,
 	ResponsiveContainer,
@@ -9,20 +9,28 @@ import {
 import './ProfileScore.css';
 
 const ProfileScore = (props) => {
-  const getLegend = (value, entry, index) => {
-    return `${entry.payload.todayScore * 100}% de votre objectif quotidien`;
-  };
+	const getLegend = (value, entry, index) => {
+		return (
+			<div>
+				<div className="profile-score__legend-value">
+					{entry.payload.todayScore * 100}%
+				</div>
+				<div className="profile-score__legend-text">de votre objectif</div>
+			</div>
+		);
+	};
 	return (
 		<div className="profile-score">
+			<div className="profile-score__header">Score</div>
 			<ResponsiveContainer>
 				<RadialBarChart
 					innerRadius="90%"
 					outerRadius="100%"
 					barSize={10}
+					margin={{ top: 40 }}
 					data={[props.user]}
 					startAngle={180}
 					endAngle={-180}
-					// data={[{ todayScore: 0 }, props.user, { todayScore: 1 }]}
 				>
 					<PolarAngleAxis
 						type="number"
@@ -34,10 +42,15 @@ const ProfileScore = (props) => {
 						clockWise
 						dataKey="todayScore"
 						cornerRadius={5}
-						fill="
-#FF0000"
+						fill="#FF0000"
 					/>
-					<Legend formatter={getLegend} iconSize={0} layout="vertical" verticalAlign="middle" width={100}/>
+					<Legend
+						formatter={getLegend}
+						iconSize={0}
+						layout="vertical"
+						verticalAlign="middle"
+						width={100}
+					/>
 				</RadialBarChart>
 			</ResponsiveContainer>
 		</div>
