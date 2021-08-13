@@ -25,7 +25,7 @@ const ProfilePerformances = (props) => {
 			setOuterRadius('50%');
 		} else if (window.matchMedia('(max-width: 1650px)').matches) {
 			setOuterRadius('70%');
-		} else{
+		} else {
 			setOuterRadius('80%');
 		}
 	};
@@ -35,36 +35,33 @@ const ProfilePerformances = (props) => {
 	}, []);
 	return (
 		<div className="profile-performances">
-			<ResponsiveContainer>
-				<RadarChart
-					// cx="50%"
-					// cy="50%"
-					outerRadius={outerRadius}
-					data={props.performances.data}
-				>
-					<PolarGrid />
-					<PolarAngleAxis
-						dataKey="kind"
-						stroke="#FFFFFF"
-						tickLine={false}
-						axisLine={false}
-						tick={{ fontSize: 12, lineHeight: 24 }}
-						tickFormatter={getKind}
-					/>
-					<PolarRadiusAxis
-						dataKey="value"
-						domain={[0, 'dataMax + 25']}
-						tick={false}
-						axisLine={false}
-					/>
-					<Radar
-						dataKey="value"
-						fill="#FF0101
-"
-						fillOpacity={0.7}
-					/>
-				</RadarChart>
-			</ResponsiveContainer>
+			{props.performances ? (
+				<ResponsiveContainer>
+					<RadarChart
+						// cx="50%"
+						// cy="50%"
+						outerRadius={outerRadius}
+						data={props.performances.data}
+					>
+						<PolarGrid />
+						<PolarAngleAxis
+							dataKey="kind"
+							stroke="#FFFFFF"
+							tickLine={false}
+							axisLine={false}
+							tick={{ fontSize: 12, lineHeight: 24 }}
+							tickFormatter={getKind}
+						/>
+						<PolarRadiusAxis
+							dataKey="value"
+							domain={[0, 'dataMax + 25']}
+							tick={false}
+							axisLine={false}
+						/>
+						<Radar dataKey="value" fill="#FF0101" fillOpacity={0.7} />
+					</RadarChart>
+				</ResponsiveContainer>
+			) : null}
 		</div>
 	);
 };

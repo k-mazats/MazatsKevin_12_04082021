@@ -1,4 +1,6 @@
-import './ProfilePage.css';
+import getData from '../../api/api';
+
+import { useState, useEffect } from 'react';
 
 import ProfileHeader from '../ProfileHeader/ProfileHeader';
 import ProfileKeyStats from '../ProfileKeyStats/ProfileKeyStats';
@@ -7,18 +9,43 @@ import ProfileAverage from '../ProfileAverage/ProfileAverage';
 import ProfilePerformances from '../ProfilePerformances/ProfilePerformances';
 import ProfileScore from '../ProfileScore/ProfileScore';
 
-import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE } from '../../api/mocks/user';
+import './ProfilePage.css';
 
 const ProfilePage = () => {
+	const userId = 12;
+	const [userDatas, setUserDatas] = useState();
+	const [userActivity, setUserActivity] = useState();
+	const [userAverage, setUserAverage] = useState();
+	const [userPerformance, setUserPerformance] = useState();
+
+	useEffect(() => {
+		getData(userId)
+			.then((res) => res.data.data)
+			.then((data) => setUserDatas(data));
+
+		getData(userId, 'activity')
+			.then((res) => res.data.data)
+			.then((data) => setUserActivity(data));
+
+		getData(userId, 'average-sessions')
+			.then((res) => res.data.data)
+			.then((data) => setUserAverage(data));
+
+		getData(userId, 'performance')
+			.then((res) => res.data.data)
+			.then((data) => setUserPerformance(data));
+	}, [userId]);
 	return (
 		<div className="profile">
-			<ProfileHeader user={USER_MAIN_DATA}></ProfileHeader>
+			<ProfileHeader user={userDatas}></ProfileHeader>
 			<div className="profile-stats">
-				<ProfileKeyStats user={USER_MAIN_DATA}></ProfileKeyStats>
-				<ProfileDaily dailyActivity={USER_ACTIVITY}></ProfileDaily>
-				<ProfileAverage averageSessions={USER_AVERAGE_SESSIONS}></ProfileAverage>
-				<ProfilePerformances performances={USER_PERFORMANCE}></ProfilePerformances>
-				<ProfileScore user={USER_MAIN_DATA}></ProfileScore>
+				<ProfileKeyStats user={userDatas}></ProfileKeyStats>
+				<ProfileDaily dailyActivity={userActivity}></ProfileDaily>
+				<ProfileAverage averageSessions={userAverage}></ProfileAverage>
+				<ProfilePerformances
+					performances={userPerformance}
+				></ProfilePerformances>
+				<ProfileScore user={userDatas}></ProfileScore>
 			</div>
 		</div>
 	);

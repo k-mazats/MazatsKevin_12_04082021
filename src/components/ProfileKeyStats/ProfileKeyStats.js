@@ -65,15 +65,17 @@ const ProfileKeyStats = (props) => {
 		}
 	};
 	useEffect(() => {
-		const statsArray = Object.keys(props.user.keyData).map((key) => [
-			key,
-			props.user.keyData[key],
-		]);
-		setKeyStats(statsArray);
+		if (props.user) {
+			const statsArray = Object.keys(props.user.keyData).map((key) => [
+				key,
+				props.user.keyData[key],
+			]);
+			setKeyStats(statsArray);
+		}
 	}, [props]);
 	return (
 		<div className="profile-key-stats">
-			{keyStats.map((stat, index) => statSwitch(stat, index))}
+			{keyStats ? keyStats.map((stat, index) => statSwitch(stat, index)) : null}
 		</div>
 	);
 };
