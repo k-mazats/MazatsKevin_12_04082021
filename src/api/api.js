@@ -1,6 +1,11 @@
 const axios = require('axios').default;
 
-
+/**
+ * return data from the API
+ * @param   {number} userId  User ID
+ * @param   {string} action  API endpoint
+ * @return  {object}         Fetched data
+ */
 const getData = async (userId, action) => {
   const baseUrl = 'http://localhost'
   const port = "1337"

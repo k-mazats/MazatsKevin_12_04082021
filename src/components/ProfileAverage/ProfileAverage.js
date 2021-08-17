@@ -4,7 +4,6 @@ import {
 	XAxis,
 	YAxis,
 	Tooltip,
-	// Legend,
 	ResponsiveContainer,
 } from 'recharts';
 
@@ -12,10 +11,30 @@ import PropTypes from 'prop-types';
 
 import './ProfileAverage.css';
 
+/**
+ * Component for generating chart from sessions average length.
+ *
+ * @component
+ *
+ */
+
 const ProfileAverage = (props) => {
+	/**
+	 * return formated datas for chart tooltip
+	 * @param   {number} value  Point value
+	 * @param   {string} name   Axis name
+	 * @param   {object} props  Axis properties
+	 * @return  {array}          Return ["formatted value", "formatted name"]
+	 */
 	const getTooltip = (value, name, props) => {
-		return [`${value} `, null, props];
+		return [`${value} `, null];
 	};
+
+	/**
+	 * return tick value for days axis
+	 * @param   {number} dayId  Day of the week as a number
+	 * @return  {array}         Return first letter of day's name
+	 */
 	const getDay = (dayId) => {
 		const dayObject = {
 			1: 'L',
@@ -28,6 +47,7 @@ const ProfileAverage = (props) => {
 		};
 		return dayObject[dayId];
 	};
+
 	return (
 		<div className="profile-average">
 			<div className="profile-average__header">Durée moyenne des sessions</div>
@@ -77,13 +97,15 @@ const ProfileAverage = (props) => {
 };
 
 ProfileAverage.propTypes = {
-	averageSessions : PropTypes.shape({
-		sessions: PropTypes.arrayOf(PropTypes.shape({
-			day: PropTypes.number,
-			sessionLength: PropTypes.number,
-		})),
+	averageSessions: PropTypes.shape({
+		sessions: PropTypes.arrayOf(
+			PropTypes.shape({
+				day: PropTypes.number,
+				sessionLength: PropTypes.number,
+			})
+		),
 		userId: PropTypes.number,
-	})
-}
+	}),
+};
 
 export default ProfileAverage;

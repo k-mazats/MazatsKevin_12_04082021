@@ -1,0 +1,231 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> components/ProfileAverage/ProfileAverage.js</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+             
+                <a href="index.html">
+                    <h1 class="navbar-item">My React components</h1>
+                </a>
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    API Documentation
+                </a>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Components</h3><ul><li><a href="ProfileAverage.html">ProfileAverage</a></li></ul><h3>Global</h3><ul><li><a href="global.html#getData">getData</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>components/ProfileAverage/ProfileAverage.js</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import {
+	LineChart,
+	Line,
+	XAxis,
+	YAxis,
+	Tooltip,
+	ResponsiveContainer,
+} from 'recharts';
+
+import PropTypes from 'prop-types';
+
+import './ProfileAverage.css';
+
+/**
+ * Component for generating chart from sessions average length.
+ *
+ * @component
+ *
+ */
+
+const ProfileAverage = (props) => {
+	/**
+	 * return formated datas for chart tooltip
+	 * @param   {number} value  Point value
+	 * @param   {string} name   Axis name
+	 * @param   {object} props  Axis properties
+	 * @return  {array}          Return ["formatted value", "formatted name"]
+	 */
+	const getTooltip = (value, name, props) => {
+		return [`${value} `, null];
+	};
+
+	/**
+	 * return tick value for days axis
+	 * @param   {number} dayId  Day of the week as a number
+	 * @return  {array}         Return first letter of day's name
+	 */
+	const getDay = (dayId) => {
+		const dayObject = {
+			1: 'L',
+			2: 'M',
+			3: 'M',
+			4: 'J',
+			5: 'V',
+			6: 'S',
+			7: 'D',
+		};
+		return dayObject[dayId];
+	};
+
+	return (
+		&lt;div className="profile-average">
+			&lt;div className="profile-average__header">Durée moyenne des sessions&lt;/div>
+			&lt;div className="profile-average__chart">
+				{props.averageSessions ? (
+					&lt;ResponsiveContainer>
+						&lt;LineChart data={props.averageSessions.sessions}>
+							&lt;XAxis
+								tickLine={false}
+								axisLine={false}
+								tick={{ fill: '#FFFFFF', fontSize: 12 }}
+								padding={{ left: 10, right: 10 }}
+								dataKey="day"
+								tickFormatter={getDay}
+							/>
+							&lt;YAxis
+								hide="true"
+								dataKey="sessionLength"
+								yAxisId="sessionLength"
+							/>
+							&lt;Tooltip
+								labelStyle={{ display: 'none' }}
+								itemStyle={{
+									textAlign: 'center',
+									color: '#000000',
+									fontSize: 8,
+								}}
+								contentStyle={{ background: '#FFFFFF', border: 'none' }}
+								formatter={getTooltip}
+							/>
+							{/* &lt;Legend /> */}
+							&lt;Line
+								dataKey="sessionLength"
+								yAxisId="sessionLength"
+								stroke="#FFFFFF"
+								dot={false}
+								unit="min"
+								type="monotone"
+								strokeWidth={2}
+							/>
+						&lt;/LineChart>
+					&lt;/ResponsiveContainer>
+				) : null}
+			&lt;/div>
+		&lt;/div>
+	);
+};
+
+ProfileAverage.propTypes = {
+	averageSessions: PropTypes.shape({
+		sessions: PropTypes.arrayOf(
+			PropTypes.shape({
+				day: PropTypes.number,
+				sessionLength: PropTypes.number,
+			})
+		),
+		userId: PropTypes.number,
+	}),
+};
+
+export default ProfileAverage;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by 
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+</body>
+</html>
