@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> Home</title>
+  <title> components/ProfilePage/ProfilePage.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -77,33 +79,79 @@
         <div class="core" id="main-content-wrapper">
             <div class="content">
                 <header class="page-title">
-                    <p></p>
-                    <h1>Home</h1>
+                    <p>Source</p>
+                    <h1>components/ProfilePage/ProfilePage.js</h1>
                 </header>
                 
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import getData from '../../api/api';
 
+import { useState, useEffect } from 'react';
 
-    <h3> </h3>
+import ProfileHeader from '../ProfileHeader/ProfileHeader';
+import ProfileKeyStats from '../ProfileKeyStats/ProfileKeyStats';
+import ProfileDaily from '../ProfileDaily/ProfileDaily';
+import ProfileAverage from '../ProfileAverage/ProfileAverage';
+import ProfilePerformances from '../ProfilePerformances/ProfilePerformances';
+import ProfileScore from '../ProfileScore/ProfileScore';
 
+import './ProfilePage.css';
 
+/**
+ * Component fetching data and forwarding it to children components.
+ *
+ * @component
+ *
+ */
+const ProfilePage = () => {
+	const userId = 12;
+	const [userDatas, setUserDatas] = useState();
+	const [userActivity, setUserActivity] = useState();
+	const [userAverage, setUserAverage] = useState();
+	const [userPerformance, setUserPerformance] = useState();
 
+	useEffect(() => {
+		getData(userId)
+			.then((res) => res.data.data)
+			.then((data) => setUserDatas(data));
 
+		getData(userId, 'activity')
+			.then((res) => res.data.data)
+			.then((data) => setUserActivity(data));
 
+		getData(userId, 'average-sessions')
+			.then((res) => res.data.data)
+			.then((data) => setUserAverage(data));
 
+		getData(userId, 'performance')
+			.then((res) => res.data.data)
+			.then((data) => setUserPerformance(data));
+	}, [userId]);
+	return (
+		&lt;div className="profile">
+			&lt;ProfileHeader user={userDatas}>&lt;/ProfileHeader>
+			&lt;div className="profile-stats">
+				&lt;ProfileKeyStats user={userDatas}>&lt;/ProfileKeyStats>
+				&lt;ProfileDaily dailyActivity={userActivity}>&lt;/ProfileDaily>
+				&lt;ProfileAverage averageSessions={userAverage}>&lt;/ProfileAverage>
+				&lt;ProfilePerformances
+					performances={userPerformance}
+				>&lt;/ProfilePerformances>
+				&lt;ProfileScore user={userDatas}>&lt;/ProfileScore>
+			&lt;/div>
+		&lt;/div>
+	);
+};
 
-
-
-
-    
-
-
-
-
-
+export default ProfilePage;
+</code></pre>
+        </article>
+    </section>
 
 
 

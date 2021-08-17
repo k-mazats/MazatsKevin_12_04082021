@@ -5,7 +5,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> ProfileAverage</title>
+  <title> ProfileDaily</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -78,7 +78,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Components</p>
-                    <h1>ProfileAverage</h1>
+                    <h1>ProfileDaily</h1>
                 </header>
                 
 
@@ -90,7 +90,7 @@
 <header>
     
         <h2>
-            &ltProfileAverage <i>averageSessions</i> /&gt
+            &ltProfileDaily <i>dailyActivity</i> /&gt
         </h2>
         
     
@@ -110,12 +110,12 @@
 
 
     
-    <h4 class="name" id="ProfileAverage">
-        <a class="href-link" href="#ProfileAverage">#</a>
+    <h4 class="name" id="ProfileDaily">
+        <a class="href-link" href="#ProfileDaily">#</a>
         
         <span class="code-name">
             
-                &ltProfileAverage <i>averageSessions</i> /&gt
+                &ltProfileDaily <i>dailyActivity</i> /&gt
             
         </span>
     </h4>
@@ -124,7 +124,7 @@
     
     
     <div class="description">
-        <p>Component for generating chart from sessions average length.</p>
+        <p>Component for generating chart from daily activity datas.</p>
     </div>
     
 
@@ -152,7 +152,7 @@
     <tbody>
     
           <tr class="deep-level-0">
-            <td class="name"><code>averageSessions</code></td>
+            <td class="name"><code>dailyActivity</code></td>
             <td>
               shape
             </td>
@@ -206,9 +206,9 @@
 
     
         <p class="tag-source">
-            <a href="components_ProfileAverage_ProfileAverage.js.html" class="button">View Source</a>
+            <a href="components_ProfileDaily_ProfileDaily.js.html" class="button">View Source</a>
             <span>
-                <a href="components_ProfileAverage_ProfileAverage.js.html">components/ProfileAverage/ProfileAverage.js</a>, <a href="components_ProfileAverage_ProfileAverage.js.html#line21">line 21</a>
+                <a href="components_ProfileDaily_ProfileDaily.js.html">components/ProfileDaily/ProfileDaily.js</a>, <a href="components_ProfileDaily_ProfileDaily.js.html#line22">line 22</a>
             </span>
         </p>
     
@@ -276,7 +276,7 @@
         
         <span class="code-name">
             
-                getDay<span class="signature">(dayId)</span><span class="type-signature"> &rarr; {array}</span>
+                getDay<span class="signature">(date)</span><span class="type-signature"> &rarr; {array}</span>
             
         </span>
     </h4>
@@ -285,7 +285,7 @@
     
     
     <div class="description">
-        <p>return tick value for days axis</p>
+        <p>Return tick value for days axis</p>
     </div>
     
 
@@ -323,13 +323,13 @@
             
 <tr class="deep-level-0">
   
-      <td class="name"><code>dayId</code></td>
+      <td class="name"><code>date</code></td>
   
 
   <td class="type">
   
       
-<span class="param-type">number</span>
+<span class="param-type">string</span>
 
 
   
@@ -339,7 +339,7 @@
 
   
 
-  <td class="description last"><p>Day of the week as a number</p></td>
+  <td class="description last"><p>Date as a string 'YYYY-MM-DD'</p></td>
 </tr>
 
 
@@ -385,9 +385,9 @@
 
     
         <p class="tag-source">
-            <a href="components_ProfileAverage_ProfileAverage.js.html" class="button">View Source</a>
+            <a href="components_ProfileDaily_ProfileDaily.js.html" class="button">View Source</a>
             <span>
-                <a href="components_ProfileAverage_ProfileAverage.js.html">components/ProfileAverage/ProfileAverage.js</a>, <a href="components_ProfileAverage_ProfileAverage.js.html#line38">line 38</a>
+                <a href="components_ProfileDaily_ProfileDaily.js.html">components/ProfileDaily/ProfileDaily.js</a>, <a href="components_ProfileDaily_ProfileDaily.js.html#line38">line 38</a>
             </span>
         </p>
     
@@ -418,7 +418,7 @@
 
 <div class="columns">
     
-    <div class='param-desc column is-7'><p>Return first letter of day's name</p></div>
+    <div class='param-desc column is-7'><p>Return day number in the month from string while removing the first number if equal to 0</p></div>
     
     
     <div class='column is-5 has-text-left'>
@@ -462,7 +462,7 @@
     
     
     <div class="description">
-        <p>return formated datas for chart tooltip</p>
+        <p>Return formated datas for chart tooltip</p>
     </div>
     
 
@@ -612,9 +612,9 @@
 
     
         <p class="tag-source">
-            <a href="components_ProfileAverage_ProfileAverage.js.html" class="button">View Source</a>
+            <a href="components_ProfileDaily_ProfileDaily.js.html" class="button">View Source</a>
             <span>
-                <a href="components_ProfileAverage_ProfileAverage.js.html">components/ProfileAverage/ProfileAverage.js</a>, <a href="components_ProfileAverage_ProfileAverage.js.html#line29">line 29</a>
+                <a href="components_ProfileDaily_ProfileDaily.js.html">components/ProfileDaily/ProfileDaily.js</a>, <a href="components_ProfileDaily_ProfileDaily.js.html#line30">line 30</a>
             </span>
         </p>
     
@@ -652,6 +652,208 @@
         <label>Type: </label>
         
 <span class="param-type">array</span>
+
+
+    </div>
+    
+</div>
+
+                
+        </div>
+    </div>
+
+
+
+
+</div>
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id="~renderLegend">
+        <a class="href-link" href="#~renderLegend">#</a>
+        
+            
+                <span class='tag'>inner</span>
+            
+        
+        <span class="code-name">
+            
+                renderLegend<span class="signature">(value, entry)</span><span class="type-signature"> &rarr; {element}</span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        <p>Return formatted legend with custom style</p>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+<div class="table-container">
+    <table class="params table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>value</code></td>
+  
+
+  <td class="type">
+  
+      
+<span class="param-type">string</span>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last"><p>Axis name</p></td>
+</tr>
+
+
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>entry</code></td>
+  
+
+  <td class="type">
+  
+      
+<span class="param-type">object</span>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last"><p>Axis properties</p></td>
+</tr>
+
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="components_ProfileDaily_ProfileDaily.js.html" class="button">View Source</a>
+            <span>
+                <a href="components_ProfileDaily_ProfileDaily.js.html">components/ProfileDaily/ProfileDaily.js</a>, <a href="components_ProfileDaily_ProfileDaily.js.html#line48">line 48</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class='columns method-parameter'>
+        <div class="column is-2"><label>Returns:</label></div>
+        <div class="column is-10">
+            
+                    
+
+<div class="columns">
+    
+    <div class='param-desc column is-7'><p>Return React component</p></div>
+    
+    
+    <div class='column is-5 has-text-left'>
+        <label>Type: </label>
+        
+<span class="param-type">element</span>
 
 
     </div>

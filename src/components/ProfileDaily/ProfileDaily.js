@@ -12,14 +12,39 @@ import {
 import PropTypes from 'prop-types';
 
 import './ProfileDaily.css';
+
+/**
+ * Component for generating chart from daily activity datas.
+ *
+ * @component
+ *
+ */
 const ProfileDaily = (props) => {
+	/**
+	 * Return formated datas for chart tooltip
+	 * @param   {number} value  Point value
+	 * @param   {string} name   Axis name
+	 * @param   {object} props  Axis properties
+	 * @return  {array}          Return ["formatted value", "formatted name"]
+	 */
 	const getTooltip = (value, name, props) => {
 		return [`${value} `, null, props];
 	};
+	/**
+	 * Return tick value for days axis
+	 * @param   {string} date  Date as a string 'YYYY-MM-DD'
+	 * @return  {array}        Return day number in the month from string while removing the first number if equal to 0
+	 */
 	const getDay = (date) => {
 		let day = date.split('-')[2];
 		return day.charAt(0) === '0' ? day.replace('0', '') : day;
 	};
+	/**
+	 * Return formatted legend with custom style
+	 * @param   {string} 		value  Axis name
+	 * @param   {object} 		entry  Axis properties
+	 * @return  {element}  		     Return React component
+	 */
 	const renderLegend = (value, entry) => {
 		return <span style={{ color: '#9B9EAC', fontSize: 14 }}>{value}</span>;
 	};

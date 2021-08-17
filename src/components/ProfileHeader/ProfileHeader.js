@@ -1,5 +1,12 @@
 import PropTypes from 'prop-types';
 
+/**
+ * Component for displaying 'Hello @username'.
+ *
+ * @component
+ *
+ */
+
 import './ProfileHeader.css';
 const ProfileHeader = (props) => {
 	return (
@@ -30,8 +37,8 @@ ProfileHeader.propTypes = {
 		userInfos: PropTypes.shape({
 			age: PropTypes.number,
 			firstName: PropTypes.string,
-			lastName: PropTypes.string
-		})
+			lastName: PropTypes.string,
+		}),
 	}),
 };
 

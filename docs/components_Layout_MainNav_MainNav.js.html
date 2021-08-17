@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> Home</title>
+  <title> components/Layout/MainNav/MainNav.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -77,33 +79,41 @@
         <div class="core" id="main-content-wrapper">
             <div class="content">
                 <header class="page-title">
-                    <p></p>
-                    <h1>Home</h1>
+                    <p>Source</p>
+                    <h1>components/Layout/MainNav/MainNav.js</h1>
                 </header>
                 
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import './MainNav.css'
 
+/**
+ * Main nav component.
+ *
+ * @component
+ *
+ */
+const MainNav = () => {
+	return (
+		&lt;nav className="main-nav">
+			&lt;ul className="main-nav__list">
+        &lt;li>Accueil&lt;/li>
+        &lt;li>Profile&lt;/li>
+        &lt;li>Réglage&lt;/li>
+        &lt;li>Communauté&lt;/li>
+      &lt;/ul>
+		&lt;/nav>
+	);
+};
 
-    <h3> </h3>
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+export default MainNav;
+</code></pre>
+        </article>
+    </section>
 
 
 

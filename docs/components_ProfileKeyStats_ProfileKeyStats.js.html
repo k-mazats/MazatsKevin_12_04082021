@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> Home</title>
+  <title> components/ProfileKeyStats/ProfileKeyStats.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -77,33 +79,137 @@
         <div class="core" id="main-content-wrapper">
             <div class="content">
                 <header class="page-title">
-                    <p></p>
-                    <h1>Home</h1>
+                    <p>Source</p>
+                    <h1>components/ProfileKeyStats/ProfileKeyStats.js</h1>
                 </header>
                 
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
+import './ProfileKeyStats.css';
 
-    <h3> </h3>
+import KeyStat from './KeyStat/KeyStat.js';
 
+import { ReactComponent as ProtIcon } from '../../assets/svg/key-stat-prot-icon.svg';
+import { ReactComponent as CalIcon } from '../../assets/svg/key-stat-cal-icon.svg';
+import { ReactComponent as FatIcon } from '../../assets/svg/key-stat-fat-icon.svg';
+import { ReactComponent as CarbIcon } from '../../assets/svg/key-stat-carb-icon.svg';
 
+/**
+ * Component for generating KeyStats component for each stats in a given array.
+ *
+ * @component
+ *
+ */
+const ProfileKeyStats = (props) => {
+	const [keyStats, setKeyStats] = useState([]);
 
+	/**
+	 * Return KeyStats component with props based on given datas.
+	 * @param   {array} 		stat  	Stat array ['stat name','stat value'] 
+	 * @param   {number} 		index  	Index of stat object in stats array
+	 * @return  {element}						Return React component
+	 */
+	const statSwitch = (stat, index) => {
+		switch (stat[0]) {
+			case 'calorieCount':
+				return (
+					&lt;KeyStat
+						key={`keyStat-${index}`}
+						statName="Calories"
+						statCount={stat[1]}
+						statUnit="kCal"
+						backgroundColor="rgba(255, 0, 0, 0.1)"
+					>
+						&lt;CalIcon>&lt;/CalIcon>
+					&lt;/KeyStat>
+				);
+			case 'proteinCount':
+				return (
+					&lt;KeyStat
+						key={`keyStat-${index}`}
+						statName="Proteines"
+						statCount={stat[1]}
+						statUnit="g"
+						backgroundColor="rgba(74, 184, 255, 0.1)"
+					>
+						&lt;ProtIcon>&lt;/ProtIcon>
+					&lt;/KeyStat>
+				);
+			case 'carbohydrateCount':
+				return (
+					&lt;KeyStat
+						key={`keyStat-${index}`}
+						statName="Glucides"
+						statCount={stat[1]}
+						statUnit="g"
+						backgroundColor="rgba(249, 206, 35, 0.1)"
+					>
+						&lt;CarbIcon>&lt;/CarbIcon>
+					&lt;/KeyStat>
+				);
+			case 'lipidCount':
+				return (
+					&lt;KeyStat
+						key={`keyStat-${index}`}
+						statName="Lipides"
+						statCount={stat[1]}
+						statUnit="g"
+						backgroundColor="rgba(253, 81, 129, 0.1)"
+					>
+						&lt;FatIcon>&lt;/FatIcon>
+					&lt;/KeyStat>
+				);
+			default:
+				break;
+		}
+	};
 
+	useEffect(() => {
+		if (props.user) {
+			const statsArray = Object.keys(props.user.keyData).map((key) => [
+				key,
+				props.user.keyData[key],
+			]);
+			setKeyStats(statsArray);
+		}
+	}, [props]);
 
+	return (
+		&lt;div className="profile-key-stats">
+			{keyStats ? keyStats.map((stat, index) => statSwitch(stat, index)) : null}
+		&lt;/div>
+	);
+};
 
+ProfileKeyStats.propTypes = {
+	user: PropTypes.shape({
+		id: PropTypes.number,
+		keyData: PropTypes.shape({
+			calorieCount: PropTypes.number,
+			carboHydrateCount: PropTypes.number,
+			lipidCount: PropTypes.number,
+			proteineCount: PropTypes.number,
+		}),
+		todayScore: PropTypes.number,
+		userInfos: PropTypes.shape({
+			age: PropTypes.number,
+			firstName: PropTypes.string,
+			lastName: PropTypes.string,
+		}),
+	}),
+};
 
-
-
-
-    
-
-
-
-
-
+export default ProfileKeyStats;
+</code></pre>
+        </article>
+    </section>
 
 
 

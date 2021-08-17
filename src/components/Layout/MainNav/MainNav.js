@@ -1,4 +1,11 @@
 import './MainNav.css'
+
+/**
+ * Main nav component.
+ *
+ * @component
+ *
+ */
 const MainNav = () => {
 	return (
 		<nav className="main-nav">

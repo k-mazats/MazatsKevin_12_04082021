@@ -3,15 +3,28 @@ import PropTypes from 'prop-types';
 
 import './ProfileKeyStats.css';
 
-import KeyStat from './KeyStat/KeyStats.js';
+import KeyStat from './KeyStat/KeyStat.js';
 
 import { ReactComponent as ProtIcon } from '../../assets/svg/key-stat-prot-icon.svg';
 import { ReactComponent as CalIcon } from '../../assets/svg/key-stat-cal-icon.svg';
 import { ReactComponent as FatIcon } from '../../assets/svg/key-stat-fat-icon.svg';
 import { ReactComponent as CarbIcon } from '../../assets/svg/key-stat-carb-icon.svg';
 
+/**
+ * Component for generating KeyStats component for each stats in a given array.
+ *
+ * @component
+ *
+ */
 const ProfileKeyStats = (props) => {
 	const [keyStats, setKeyStats] = useState([]);
+
+	/**
+	 * Return KeyStats component with props based on given datas.
+	 * @param   {array} 		stat  	Stat array ['stat name','stat value'] 
+	 * @param   {number} 		index  	Index of stat object in stats array
+	 * @return  {element}						Return React component
+	 */
 	const statSwitch = (stat, index) => {
 		switch (stat[0]) {
 			case 'calorieCount':
@@ -66,6 +79,7 @@ const ProfileKeyStats = (props) => {
 				break;
 		}
 	};
+
 	useEffect(() => {
 		if (props.user) {
 			const statsArray = Object.keys(props.user.keyData).map((key) => [
@@ -75,6 +89,7 @@ const ProfileKeyStats = (props) => {
 			setKeyStats(statsArray);
 		}
 	}, [props]);
+
 	return (
 		<div className="profile-key-stats">
 			{keyStats ? keyStats.map((stat, index) => statSwitch(stat, index)) : null}

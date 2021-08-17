@@ -10,8 +10,20 @@ import {
 
 import './ProfileScore.css';
 
+/**
+ * Component for generating chart from today's score datas.
+ *
+ * @component
+ *
+ */
 const ProfileScore = (props) => {
-	const getLegend = (value, entry, index) => {
+	/**
+	 * Return formatted legend with custom style
+	 * @param   {string} 		value  Axis name
+	 * @param   {object} 		entry  Axis properties
+	 * @return  {element}  		     Return React component
+	 */
+	const getLegend = (value, entry) => {
 		return (
 			<div>
 				<div className="profile-score__legend-value">
@@ -21,6 +33,7 @@ const ProfileScore = (props) => {
 			</div>
 		);
 	};
+
 	return (
 		<div className="profile-score">
 			<div className="profile-score__header">Score</div>

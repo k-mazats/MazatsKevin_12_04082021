@@ -5,7 +5,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> ProfileAverage</title>
+  <title> ProfilePerformances</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -78,7 +78,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Components</p>
-                    <h1>ProfileAverage</h1>
+                    <h1>ProfilePerformances</h1>
                 </header>
                 
 
@@ -90,7 +90,7 @@
 <header>
     
         <h2>
-            &ltProfileAverage <i>averageSessions</i> /&gt
+            &ltProfilePerformances <i>performances</i> /&gt
         </h2>
         
     
@@ -110,12 +110,12 @@
 
 
     
-    <h4 class="name" id="ProfileAverage">
-        <a class="href-link" href="#ProfileAverage">#</a>
+    <h4 class="name" id="ProfilePerformances">
+        <a class="href-link" href="#ProfilePerformances">#</a>
         
         <span class="code-name">
             
-                &ltProfileAverage <i>averageSessions</i> /&gt
+                &ltProfilePerformances <i>performances</i> /&gt
             
         </span>
     </h4>
@@ -124,7 +124,7 @@
     
     
     <div class="description">
-        <p>Component for generating chart from sessions average length.</p>
+        <p>Component for generating chart from performances datas.</p>
     </div>
     
 
@@ -152,7 +152,7 @@
     <tbody>
     
           <tr class="deep-level-0">
-            <td class="name"><code>averageSessions</code></td>
+            <td class="name"><code>performances</code></td>
             <td>
               shape
             </td>
@@ -206,9 +206,9 @@
 
     
         <p class="tag-source">
-            <a href="components_ProfileAverage_ProfileAverage.js.html" class="button">View Source</a>
+            <a href="components_ProfilePerformances_ProfilePerformances.js.html" class="button">View Source</a>
             <span>
-                <a href="components_ProfileAverage_ProfileAverage.js.html">components/ProfileAverage/ProfileAverage.js</a>, <a href="components_ProfileAverage_ProfileAverage.js.html#line21">line 21</a>
+                <a href="components_ProfilePerformances_ProfilePerformances.js.html">components/ProfilePerformances/ProfilePerformances.js</a>, <a href="components_ProfilePerformances_ProfilePerformances.js.html#line21">line 21</a>
             </span>
         </p>
     
@@ -267,8 +267,8 @@
 
 
     
-    <h4 class="name" id="~getDay">
-        <a class="href-link" href="#~getDay">#</a>
+    <h4 class="name" id="~getKind">
+        <a class="href-link" href="#~getKind">#</a>
         
             
                 <span class='tag'>inner</span>
@@ -276,7 +276,7 @@
         
         <span class="code-name">
             
-                getDay<span class="signature">(dayId)</span><span class="type-signature"> &rarr; {array}</span>
+                getKind<span class="signature">(kindId)</span><span class="type-signature"> &rarr; {string}</span>
             
         </span>
     </h4>
@@ -285,7 +285,7 @@
     
     
     <div class="description">
-        <p>return tick value for days axis</p>
+        <p>Return tick value for 'kind' axis.</p>
     </div>
     
 
@@ -323,7 +323,7 @@
             
 <tr class="deep-level-0">
   
-      <td class="name"><code>dayId</code></td>
+      <td class="name"><code>kindId</code></td>
   
 
   <td class="type">
@@ -339,7 +339,7 @@
 
   
 
-  <td class="description last"><p>Day of the week as a number</p></td>
+  <td class="description last"><p>Originalm tick value for 'kind' axis.</p></td>
 </tr>
 
 
@@ -385,9 +385,9 @@
 
     
         <p class="tag-source">
-            <a href="components_ProfileAverage_ProfileAverage.js.html" class="button">View Source</a>
+            <a href="components_ProfilePerformances_ProfilePerformances.js.html" class="button">View Source</a>
             <span>
-                <a href="components_ProfileAverage_ProfileAverage.js.html">components/ProfileAverage/ProfileAverage.js</a>, <a href="components_ProfileAverage_ProfileAverage.js.html#line38">line 38</a>
+                <a href="components_ProfilePerformances_ProfilePerformances.js.html">components/ProfilePerformances/ProfilePerformances.js</a>, <a href="components_ProfilePerformances_ProfilePerformances.js.html#line29">line 29</a>
             </span>
         </p>
     
@@ -418,13 +418,13 @@
 
 <div class="columns">
     
-    <div class='param-desc column is-7'><p>Return first letter of day's name</p></div>
+    <div class='param-desc column is-7'><p>Return activity kind as a string with capitalized first letter</p></div>
     
     
     <div class='column is-5 has-text-left'>
         <label>Type: </label>
         
-<span class="param-type">array</span>
+<span class="param-type">string</span>
 
 
     </div>
@@ -444,8 +444,8 @@
 
 
     
-    <h4 class="name" id="~getTooltip">
-        <a class="href-link" href="#~getTooltip">#</a>
+    <h4 class="name" id="~getOuterRadius">
+        <a class="href-link" href="#~getOuterRadius">#</a>
         
             
                 <span class='tag'>inner</span>
@@ -453,7 +453,7 @@
         
         <span class="code-name">
             
-                getTooltip<span class="signature">(value, name, props)</span><span class="type-signature"> &rarr; {array}</span>
+                getOuterRadius<span class="signature">()</span><span class="type-signature"></span>
             
         </span>
     </h4>
@@ -462,7 +462,7 @@
     
     
     <div class="description">
-        <p>return formated datas for chart tooltip</p>
+        <p>Change outerRadius state based on window width.</p>
     </div>
     
 
@@ -473,107 +473,6 @@
 
 
 
-
-    <h5>Parameters:</h5>
-    
-<div class="table-container">
-    <table class="params table">
-        <thead>
-        <tr>
-            
-            <th>Name</th>
-            
-
-            <th>Type</th>
-
-            
-
-            
-
-            <th class="last">Description</th>
-        </tr>
-        </thead>
-
-        <tbody>
-        
-
-            
-<tr class="deep-level-0">
-  
-      <td class="name"><code>value</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">number</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>Point value</p></td>
-</tr>
-
-
-        
-
-            
-<tr class="deep-level-0">
-  
-      <td class="name"><code>name</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">string</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>Axis name</p></td>
-</tr>
-
-
-        
-
-            
-<tr class="deep-level-0">
-  
-      <td class="name"><code>props</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">object</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>Axis properties</p></td>
-</tr>
-
-
-        
-        </tbody>
-    </table>
-</div>
 
 
 
@@ -612,9 +511,9 @@
 
     
         <p class="tag-source">
-            <a href="components_ProfileAverage_ProfileAverage.js.html" class="button">View Source</a>
+            <a href="components_ProfilePerformances_ProfilePerformances.js.html" class="button">View Source</a>
             <span>
-                <a href="components_ProfileAverage_ProfileAverage.js.html">components/ProfileAverage/ProfileAverage.js</a>, <a href="components_ProfileAverage_ProfileAverage.js.html#line29">line 29</a>
+                <a href="components_ProfilePerformances_ProfilePerformances.js.html">components/ProfilePerformances/ProfilePerformances.js</a>, <a href="components_ProfilePerformances_ProfilePerformances.js.html#line37">line 37</a>
             </span>
         </p>
     
@@ -636,31 +535,6 @@
 
 
 
-
-    <div class='columns method-parameter'>
-        <div class="column is-2"><label>Returns:</label></div>
-        <div class="column is-10">
-            
-                    
-
-<div class="columns">
-    
-    <div class='param-desc column is-7'><p>Return [&quot;formatted value&quot;, &quot;formatted name&quot;]</p></div>
-    
-    
-    <div class='column is-5 has-text-left'>
-        <label>Type: </label>
-        
-<span class="param-type">array</span>
-
-
-    </div>
-    
-</div>
-
-                
-        </div>
-    </div>
 
 
 

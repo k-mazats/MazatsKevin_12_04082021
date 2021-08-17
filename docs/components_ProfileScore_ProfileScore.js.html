@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> Home</title>
+  <title> components/ProfileScore/ProfileScore.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -77,33 +79,114 @@
         <div class="core" id="main-content-wrapper">
             <div class="content">
                 <header class="page-title">
-                    <p></p>
-                    <h1>Home</h1>
+                    <p>Source</p>
+                    <h1>components/ProfileScore/ProfileScore.js</h1>
                 </header>
                 
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import PropTypes from 'prop-types';
 
+import {
+	RadialBarChart,
+	PolarAngleAxis,
+	RadialBar,
+	Legend,
+	ResponsiveContainer,
+} from 'recharts';
 
-    <h3> </h3>
+import './ProfileScore.css';
 
+/**
+ * Component for generating chart from today's score datas.
+ *
+ * @component
+ *
+ */
+const ProfileScore = (props) => {
+	/**
+	 * Return formatted legend with custom style
+	 * @param   {string} 		value  Axis name
+	 * @param   {object} 		entry  Axis properties
+	 * @return  {element}  		     Return React component
+	 */
+	const getLegend = (value, entry) => {
+		return (
+			&lt;div>
+				&lt;div className="profile-score__legend-value">
+					{entry.payload.todayScore * 100}%
+				&lt;/div>
+				&lt;div className="profile-score__legend-text">de votre objectif&lt;/div>
+			&lt;/div>
+		);
+	};
 
+	return (
+		&lt;div className="profile-score">
+			&lt;div className="profile-score__header">Score&lt;/div>
+			{props.user ? (
+				&lt;ResponsiveContainer>
+					&lt;RadialBarChart
+						innerRadius="90%"
+						outerRadius="100%"
+						barSize={10}
+						margin={{ top: 40 }}
+						data={[props.user]}
+						startAngle={180}
+						endAngle={-180}
+					>
+						&lt;PolarAngleAxis
+							type="number"
+							domain={[0, 1]}
+							angleAxisId={0}
+							tick={false}
+						/>
+						&lt;RadialBar
+							clockWise
+							dataKey="todayScore"
+							cornerRadius={5}
+							fill="#FF0000"
+						/>
+						&lt;Legend
+							formatter={getLegend}
+							iconSize={0}
+							layout="vertical"
+							verticalAlign="middle"
+							width={100}
+						/>
+					&lt;/RadialBarChart>
+				&lt;/ResponsiveContainer>
+			) : null}
+		&lt;/div>
+	);
+};
 
+ProfileScore.propTypes = {
+	user: PropTypes.shape({
+		id: PropTypes.number,
+		keyData: PropTypes.shape({
+			calorieCount: PropTypes.number,
+			carboHydrateCount: PropTypes.number,
+			lipidCount: PropTypes.number,
+			proteineCount: PropTypes.number,
+		}),
+		todayScore: PropTypes.number,
+		userInfos: PropTypes.shape({
+			age: PropTypes.number,
+			firstName: PropTypes.string,
+			lastName: PropTypes.string,
+		}),
+	}),
+};
 
-
-
-
-
-
-
-    
-
-
-
-
-
+export default ProfileScore;
+</code></pre>
+        </article>
+    </section>
 
 
 
