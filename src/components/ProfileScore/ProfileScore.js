@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import {
 	RadialBarChart,
 	PolarAngleAxis,
@@ -57,6 +59,24 @@ const ProfileScore = (props) => {
 			) : null}
 		</div>
 	);
+};
+
+ProfileScore.propTypes = {
+	user: PropTypes.shape({
+		id: PropTypes.number,
+		keyData: PropTypes.shape({
+			calorieCount: PropTypes.number,
+			carboHydrateCount: PropTypes.number,
+			lipidCount: PropTypes.number,
+			proteineCount: PropTypes.number,
+		}),
+		todayScore: PropTypes.number,
+		userInfos: PropTypes.shape({
+			age: PropTypes.number,
+			firstName: PropTypes.string,
+			lastName: PropTypes.string,
+		}),
+	}),
 };
 
 export default ProfileScore;

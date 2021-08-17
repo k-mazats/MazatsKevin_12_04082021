@@ -8,6 +8,8 @@ import {
 	ResponsiveContainer,
 } from 'recharts';
 
+import PropTypes from 'prop-types';
+
 import './ProfileAverage.css';
 
 const ProfileAverage = (props) => {
@@ -73,5 +75,15 @@ const ProfileAverage = (props) => {
 		</div>
 	);
 };
+
+ProfileAverage.propTypes = {
+	averageSessions : PropTypes.shape({
+		sessions: PropTypes.arrayOf(PropTypes.shape({
+			day: PropTypes.number,
+			sessionLength: PropTypes.number,
+		})),
+		userId: PropTypes.number,
+	})
+}
 
 export default ProfileAverage;

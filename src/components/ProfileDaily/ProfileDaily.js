@@ -9,6 +9,8 @@ import {
 	ResponsiveContainer,
 } from 'recharts';
 
+import PropTypes from 'prop-types';
+
 import './ProfileDaily.css';
 const ProfileDaily = (props) => {
 	const getTooltip = (value, name, props) => {
@@ -97,6 +99,19 @@ const ProfileDaily = (props) => {
 			) : null}
 		</div>
 	);
+};
+
+ProfileDaily.propTypes = {
+	dailyActivity: PropTypes.shape({
+		sessions: PropTypes.arrayOf(
+			PropTypes.shape({
+				calories: PropTypes.number,
+				day: PropTypes.string,
+				kilogram: PropTypes.number,
+			})
+		),
+		userId: PropTypes.number,
+	}),
 };
 
 export default ProfileDaily;

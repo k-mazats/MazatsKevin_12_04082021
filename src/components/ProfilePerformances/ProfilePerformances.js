@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
+
 import {
 	Radar,
 	RadarChart,
@@ -64,6 +66,24 @@ const ProfilePerformances = (props) => {
 			) : null}
 		</div>
 	);
+};
+
+ProfilePerformances.propTypes = {
+	performances: PropTypes.shape({
+		data: PropTypes.arrayOf(PropTypes.shape({
+			kind: PropTypes.number,
+			value: PropTypes.number
+		})),
+		kind: PropTypes.shape({
+			1: PropTypes.string,
+			2: PropTypes.string,
+			3: PropTypes.string,
+			4: PropTypes.string,
+			5: PropTypes.string,
+			6: PropTypes.string,
+		}),
+		userId: PropTypes.number
+	}),
 };
 
 export default ProfilePerformances;

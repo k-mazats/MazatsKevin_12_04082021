@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+
 import './ProfileKeyStats.css';
 
 import KeyStat from './KeyStat/KeyStats.js';
@@ -78,6 +80,24 @@ const ProfileKeyStats = (props) => {
 			{keyStats ? keyStats.map((stat, index) => statSwitch(stat, index)) : null}
 		</div>
 	);
+};
+
+ProfileKeyStats.propTypes = {
+	user: PropTypes.shape({
+		id: PropTypes.number,
+		keyData: PropTypes.shape({
+			calorieCount: PropTypes.number,
+			carboHydrateCount: PropTypes.number,
+			lipidCount: PropTypes.number,
+			proteineCount: PropTypes.number,
+		}),
+		todayScore: PropTypes.number,
+		userInfos: PropTypes.shape({
+			age: PropTypes.number,
+			firstName: PropTypes.string,
+			lastName: PropTypes.string,
+		}),
+	}),
 };
 
 export default ProfileKeyStats;
