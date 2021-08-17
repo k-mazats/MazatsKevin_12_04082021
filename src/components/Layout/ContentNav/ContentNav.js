@@ -3,6 +3,13 @@ import { ReactComponent as YogaIcon } from '../../../assets/svg/content-nav-yoga
 import { ReactComponent as SwimmingIcon } from '../../../assets/svg/content-nav-swimming-icon.svg';
 import { ReactComponent as BikeIcon } from '../../../assets/svg/content-nav-bike-icon.svg';
 import { ReactComponent as LiftIcon } from '../../../assets/svg/content-nav-lift-icon.svg';
+
+/**
+ * Sidebar nav component.
+ *
+ * @component
+ *
+ */
 const ContentNav = () => {
 	return (
 		<aside className="side-bar">

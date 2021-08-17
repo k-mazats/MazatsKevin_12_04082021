@@ -12,12 +12,28 @@ import {
 
 import './ProfilePerformances.css';
 
+/**
+ * Component for generating chart from performances datas.
+ *
+ * @component
+ *
+ */
 const ProfilePerformances = (props) => {
 	const [outerRadius, setOuterRadius] = useState();
+
+	/**
+	 * Return tick value for 'kind' axis.
+	 * @param   {number} 		kindId  Originalm tick value for 'kind' axis.
+	 * @return  {string}						Return activity kind as a string with capitalized first letter
+	 */
 	const getKind = (kindId) => {
 		const kind = props.performances.kind[kindId];
 		return kind.charAt(0).toUpperCase() + kind.slice(1);
 	};
+	
+	/**
+	 * Change outerRadius state based on window width.
+	 */
 	const getOuterRadius = () => {
 		if (window.matchMedia('(max-width: 1250px)').matches) {
 			setOuterRadius('35%');
@@ -31,6 +47,7 @@ const ProfilePerformances = (props) => {
 			setOuterRadius('80%');
 		}
 	};
+
 	useEffect(() => {
 		getOuterRadius();
 		window.addEventListener('resize', getOuterRadius);

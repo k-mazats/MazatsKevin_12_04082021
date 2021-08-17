@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> Home</title>
+  <title> components/Layout/ContentNav/ContentNav.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -77,33 +79,64 @@
         <div class="core" id="main-content-wrapper">
             <div class="content">
                 <header class="page-title">
-                    <p></p>
-                    <h1>Home</h1>
+                    <p>Source</p>
+                    <h1>components/Layout/ContentNav/ContentNav.js</h1>
                 </header>
                 
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import './ContentNav.css';
+import { ReactComponent as YogaIcon } from '../../../assets/svg/content-nav-yoga-icon.svg';
+import { ReactComponent as SwimmingIcon } from '../../../assets/svg/content-nav-swimming-icon.svg';
+import { ReactComponent as BikeIcon } from '../../../assets/svg/content-nav-bike-icon.svg';
+import { ReactComponent as LiftIcon } from '../../../assets/svg/content-nav-lift-icon.svg';
 
+/**
+ * Sidebar nav component.
+ *
+ * @component
+ *
+ */
+const ContentNav = () => {
+	return (
+		&lt;aside className="side-bar">
+			&lt;nav className="content-nav">
+				&lt;ul className="content-nav__list">
+					&lt;li>
+						&lt;button className="content-nav__button">
+							&lt;YogaIcon>&lt;/YogaIcon>
+						&lt;/button>
+					&lt;/li>
+					&lt;li>
+						&lt;button className="content-nav__button">
+							&lt;SwimmingIcon>&lt;/SwimmingIcon>
+						&lt;/button>
+					&lt;/li>
+					&lt;li>
+						&lt;button className="content-nav__button">
+							&lt;BikeIcon>&lt;/BikeIcon>
+						&lt;/button>
+					&lt;/li>
+					&lt;li>
+						&lt;button className="content-nav__button">
+							&lt;LiftIcon>&lt;/LiftIcon>
+						&lt;/button>
+					&lt;/li>
+				&lt;/ul>
+			&lt;/nav>
+			&lt;div className="copyright">Copyright, SportSee 2020&lt;/div>
+		&lt;/aside>
+	);
+};
 
-    <h3> </h3>
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+export default ContentNav;
+</code></pre>
+        </article>
+    </section>
 
 
 

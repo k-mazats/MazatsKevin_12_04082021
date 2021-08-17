@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> Home</title>
+  <title> components/ProfileKeyStats/KeyStat/KeyStat.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -77,33 +79,55 @@
         <div class="core" id="main-content-wrapper">
             <div class="content">
                 <header class="page-title">
-                    <p></p>
-                    <h1>Home</h1>
+                    <p>Source</p>
+                    <h1>components/ProfileKeyStats/KeyStat/KeyStat.js</h1>
                 </header>
                 
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import PropTypes from 'prop-types';
+
+import './KeyStat.css';
+
+/**
+ * Component for displaying one single stat.
+ *
+ * @component
+ *
+ */
+const KeyStat = (props) => {
+	return (
+		&lt;div className="profile-key-stats__stat">
+			&lt;div
+				className="profile-key-stats__stat-icon"
+				style={{ backgroundColor: props.backgroundColor }}
+			>
+				{props.children}
+			&lt;/div>
+			&lt;div className="profile-key-stats__stat-infos">
+				&lt;div className="profile-key-stats__stat-count">{`${props.statCount}${props.statUnit}`}&lt;/div>
+				&lt;div className="profile-key-stats__stat-name">{props.statName}&lt;/div>
+			&lt;/div>
+		&lt;/div>
+	);
+};
 
 
-    <h3> </h3>
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+KeyStat.propTypes = {
+	backgroundColor: PropTypes.string.isRequired,
+	children: PropTypes.element.isRequired,
+	statCount: PropTypes.number.isRequired,
+	statName: PropTypes.string.isRequired,
+	statUnit: PropTypes.string.isRequired,
+};
+export default KeyStat;
+</code></pre>
+        </article>
+    </section>
 
 
 

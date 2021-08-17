@@ -2,6 +2,12 @@ import PropTypes from 'prop-types';
 
 import './KeyStat.css';
 
+/**
+ * Component for displaying one single stat.
+ *
+ * @component
+ *
+ */
 const KeyStat = (props) => {
 	return (
 		<div className="profile-key-stats__stat">
@@ -21,10 +27,10 @@ const KeyStat = (props) => {
 
 
 KeyStat.propTypes = {
-	backgroundColor: PropTypes.string,
-	children: PropTypes.element,
-	statCount: PropTypes.number,
-	statName: PropTypes.string,
-	statUnit: PropTypes.string,
-}
+	backgroundColor: PropTypes.string.isRequired,
+	children: PropTypes.element.isRequired,
+	statCount: PropTypes.number.isRequired,
+	statName: PropTypes.string.isRequired,
+	statUnit: PropTypes.string.isRequired,
+};
 export default KeyStat;

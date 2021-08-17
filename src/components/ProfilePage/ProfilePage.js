@@ -11,6 +11,12 @@ import ProfileScore from '../ProfileScore/ProfileScore';
 
 import './ProfilePage.css';
 
+/**
+ * Component fetching data and forwarding it to children components.
+ *
+ * @component
+ *
+ */
 const ProfilePage = () => {
 	const userId = 12;
 	const [userDatas, setUserDatas] = useState();

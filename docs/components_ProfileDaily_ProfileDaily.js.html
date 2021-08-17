@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> Home</title>
+  <title> components/ProfileDaily/ProfileDaily.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -77,33 +79,161 @@
         <div class="core" id="main-content-wrapper">
             <div class="content">
                 <header class="page-title">
-                    <p></p>
-                    <h1>Home</h1>
+                    <p>Source</p>
+                    <h1>components/ProfileDaily/ProfileDaily.js</h1>
                 </header>
                 
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import {
+	BarChart,
+	Bar,
+	XAxis,
+	YAxis,
+	CartesianGrid,
+	Tooltip,
+	Legend,
+	ResponsiveContainer,
+} from 'recharts';
 
+import PropTypes from 'prop-types';
 
-    <h3> </h3>
+import './ProfileDaily.css';
 
+/**
+ * Component for generating chart from daily activity datas.
+ *
+ * @component
+ *
+ */
+const ProfileDaily = (props) => {
+	/**
+	 * Return formated datas for chart tooltip
+	 * @param   {number} value  Point value
+	 * @param   {string} name   Axis name
+	 * @param   {object} props  Axis properties
+	 * @return  {array}          Return ["formatted value", "formatted name"]
+	 */
+	const getTooltip = (value, name, props) => {
+		return [`${value} `, null, props];
+	};
+	/**
+	 * Return tick value for days axis
+	 * @param   {string} date  Date as a string 'YYYY-MM-DD'
+	 * @return  {array}        Return day number in the month from string while removing the first number if equal to 0
+	 */
+	const getDay = (date) => {
+		let day = date.split('-')[2];
+		return day.charAt(0) === '0' ? day.replace('0', '') : day;
+	};
+	/**
+	 * Return formatted legend with custom style
+	 * @param   {string} 		value  Axis name
+	 * @param   {object} 		entry  Axis properties
+	 * @return  {element}  		     Return React component
+	 */
+	const renderLegend = (value, entry) => {
+		return &lt;span style={{ color: '#9B9EAC', fontSize: 14 }}>{value}&lt;/span>;
+	};
+	return (
+		&lt;div className="profile-daily">
+			&lt;div className="profile-daily__header">Activité quotidienne&lt;/div>
+			{props.dailyActivity ? (
+				&lt;ResponsiveContainer>
+					&lt;BarChart
+						data={props.dailyActivity.sessions}
+						margin={{ top: 24, right: 29, bottom: 24, left: 43 }}
+						barGap={4}
+						barSize={7}
+					>
+						&lt;CartesianGrid strokeDasharray="1" vertical={false} />
 
+						&lt;XAxis
+							dataKey="day"
+							tickFormatter={getDay}
+							tickLine={false}
+							tickSize={16}
+							tick={{ fill: '#9B9EAC', fontSize: 14 }}
+						/>
 
+						&lt;YAxis
+							orientation="left"
+							yAxisId="left"
+							dataKey="calories"
+							hide="true"
+						/>
+						&lt;YAxis
+							orientation="right"
+							yAxisId="right"
+							dataKey="kilogram"
+							tickLine={false}
+							tickSize={45}
+							domain={['dataMin - 1', 'dataMax + 1']}
+							tick={{ fill: '#9B9EAC', fontSize: 14 }}
+							// tickCount={4}
+							// interval={0}
+						/>
+						&lt;Tooltip
+							formatter={getTooltip}
+							labelStyle={{ display: 'none' }}
+							itemStyle={{ textAlign: 'center', color: '#FFFFFF', fontSize: 7 }}
+							contentStyle={{ background: '#E60000', border: 'none' }}
+						/>
+						&lt;Legend
+							verticalAlign="top"
+							align="right"
+							iconType="circle"
+							iconSize={8}
+							formatter={renderLegend}
+							wrapperStyle={{
+								paddingBottom: '47px',
+								fill: '#FFFFFF',
+							}}
+						/>
+						&lt;Bar
+							dataKey="kilogram"
+							yAxisId="right"
+							fill="#282D30"
+							name="Poids"
+							unit="kg"
+							radius={[3.5, 3.5, 0, 0]}
+						/>
+						&lt;Bar
+							dataKey="calories"
+							yAxisId="left"
+							fill="#E60000"
+							name="Calories brûlées"
+							unit="kCal"
+							radius={[3.5, 3.5, 0, 0]}
+						/>
+					&lt;/BarChart>
+				&lt;/ResponsiveContainer>
+			) : null}
+		&lt;/div>
+	);
+};
 
+ProfileDaily.propTypes = {
+	dailyActivity: PropTypes.shape({
+		sessions: PropTypes.arrayOf(
+			PropTypes.shape({
+				calories: PropTypes.number,
+				day: PropTypes.string,
+				kilogram: PropTypes.number,
+			})
+		),
+		userId: PropTypes.number,
+	}),
+};
 
-
-
-
-
-
-    
-
-
-
-
-
+export default ProfileDaily;
+</code></pre>
+        </article>
+    </section>
 
 
 
