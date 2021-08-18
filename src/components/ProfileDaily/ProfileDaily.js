@@ -11,6 +11,8 @@ import {
 
 import PropTypes from 'prop-types';
 
+import ProfileDailyLegend from './ProfileDailyLegend/ProfileDailyLegend';
+
 import './ProfileDaily.css';
 
 /**
@@ -42,11 +44,10 @@ const ProfileDaily = (props) => {
 	/**
 	 * Return formatted legend with custom style
 	 * @param   {string} 		value  Axis name
-	 * @param   {object} 		entry  Axis properties
 	 * @return  {element}  		     Return React component
 	 */
-	const renderLegend = (value, entry) => {
-		return <span style={{ color: '#9B9EAC', fontSize: 14 }}>{value}</span>;
+	const renderLegend = (value) => {
+		return <ProfileDailyLegend value={value}></ProfileDailyLegend>;
 	};
 	return (
 		<div className="profile-daily">

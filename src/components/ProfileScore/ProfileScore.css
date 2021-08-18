@@ -15,16 +15,3 @@
 	line-height: 24px;
 	color: #20253a;
 }
-.profile-score__legend-value {
-	font-weight: 700;
-	font-size: 26px;
-	line-height: 26px;
-	text-align: center;
-}
-.profile-score__legend-text {
-	font-weight: 500;
-	font-size: 16px;
-	line-height: 26px;
-	text-align: center;
-	color: #838798;
-}

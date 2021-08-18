@@ -8,6 +8,8 @@ import {
 	ResponsiveContainer,
 } from 'recharts';
 
+import ProfileScoreLegend from './ProfileScoreLegend/ProfileScoreLegend';
+
 import './ProfileScore.css';
 
 /**
@@ -25,12 +27,9 @@ const ProfileScore = (props) => {
 	 */
 	const getLegend = (value, entry) => {
 		return (
-			<div>
-				<div className="profile-score__legend-value">
-					{entry.payload.todayScore * 100}%
-				</div>
-				<div className="profile-score__legend-text">de votre objectif</div>
-			</div>
+			<ProfileScoreLegend
+				todayScore={entry.payload.todayScore}
+			></ProfileScoreLegend>
 		);
 	};
 
