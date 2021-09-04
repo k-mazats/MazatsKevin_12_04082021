@@ -2,6 +2,12 @@ import PropTypes from 'prop-types';
 
 import './ProfileScoreLegend.css';
 
+/**
+ * Component for generating custom legend for score chart.
+ *
+ * @component
+ *
+ */
 const ProfileScoreLegend = (props) => {
 	return (
 		<div>

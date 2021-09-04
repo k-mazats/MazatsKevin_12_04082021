@@ -43,14 +43,20 @@ reactComponents['ProfileAverage'] = Component5;
 import Component6 from '../src/components/ProfileDaily/ProfileDaily.js';
 reactComponents['ProfileDaily'] = Component6;
 
-import Component7 from '../src/components/ProfileKeyStats/ProfileKeyStats.js';
-reactComponents['ProfileKeyStats'] = Component7;
+import Component7 from '../src/components/ProfileDaily/ProfileDailyLegend/ProfileDailyLegend.js';
+reactComponents['ProfileDailyLegend'] = Component7;
 
-import Component8 from '../src/components/ProfilePage/ProfilePage.js';
-reactComponents['ProfilePage'] = Component8;
+import Component8 from '../src/components/ProfileKeyStats/ProfileKeyStats.js';
+reactComponents['ProfileKeyStats'] = Component8;
 
-import Component9 from '../src/components/ProfilePerformances/ProfilePerformances.js';
-reactComponents['ProfilePerformances'] = Component9;
+import Component9 from '../src/components/ProfilePage/ProfilePage.js';
+reactComponents['ProfilePage'] = Component9;
 
-import Component10 from '../src/components/ProfileScore/ProfileScore.js';
-reactComponents['ProfileScore'] = Component10;
+import Component10 from '../src/components/ProfilePerformances/ProfilePerformances.js';
+reactComponents['ProfilePerformances'] = Component10;
+
+import Component11 from '../src/components/ProfileScore/ProfileScore.js';
+reactComponents['ProfileScore'] = Component11;
+
+import Component12 from '../src/components/ProfileScore/ProfileScoreLegend/ProfileScoreLegend.js';
+reactComponents['ProfileScoreLegend'] = Component12;

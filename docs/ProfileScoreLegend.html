@@ -5,7 +5,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> ProfileKeyStats</title>
+  <title> ProfileScoreLegend</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -78,7 +78,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Components</p>
-                    <h1>ProfileKeyStats</h1>
+                    <h1>ProfileScoreLegend</h1>
                 </header>
                 
 
@@ -90,7 +90,7 @@
 <header>
     
         <h2>
-            &ltProfileKeyStats <i>user</i> /&gt
+            &ltProfileScoreLegend <i>todayScore</i> /&gt
         </h2>
         
     
@@ -110,12 +110,12 @@
 
 
     
-    <h4 class="name" id="ProfileKeyStats">
-        <a class="href-link" href="#ProfileKeyStats">#</a>
+    <h4 class="name" id="ProfileScoreLegend">
+        <a class="href-link" href="#ProfileScoreLegend">#</a>
         
         <span class="code-name">
             
-                &ltProfileKeyStats <i>user</i> /&gt
+                &ltProfileScoreLegend <i>todayScore</i> /&gt
             
         </span>
     </h4>
@@ -124,7 +124,7 @@
     
     
     <div class="description">
-        <p>Component for generating KeyStats component for each stats in a given array.</p>
+        <p>Component for generating custom legend for score chart.</p>
     </div>
     
 
@@ -152,9 +152,9 @@
     <tbody>
     
           <tr class="deep-level-0">
-            <td class="name"><code>user</code></td>
+            <td class="name"><code>todayScore</code></td>
             <td>
-              shape
+              number
             </td>
             <td>No</td>
             <td></td>
@@ -206,9 +206,9 @@
 
     
         <p class="tag-source">
-            <a href="components_ProfileKeyStats_ProfileKeyStats.js.html" class="button">View Source</a>
+            <a href="components_ProfileScore_ProfileScoreLegend_ProfileScoreLegend.js.html" class="button">View Source</a>
             <span>
-                <a href="components_ProfileKeyStats_ProfileKeyStats.js.html">components/ProfileKeyStats/ProfileKeyStats.js</a>, <a href="components_ProfileKeyStats_ProfileKeyStats.js.html#line19">line 19</a>
+                <a href="components_ProfileScore_ProfileScoreLegend_ProfileScoreLegend.js.html">components/ProfileScore/ProfileScoreLegend/ProfileScoreLegend.js</a>, <a href="components_ProfileScore_ProfileScoreLegend_ProfileScoreLegend.js.html#line11">line 11</a>
             </span>
         </p>
     
@@ -258,215 +258,6 @@
 
     
 
-    
-        <div class='vertical-section'>
-            <h1>Methods</h1>
-            <div class="members">
-            
-                <div class="member">
-
-
-    
-    <h4 class="name" id="~statSwitch">
-        <a class="href-link" href="#~statSwitch">#</a>
-        
-            
-                <span class='tag'>inner</span>
-            
-        
-        <span class="code-name">
-            
-                statSwitch<span class="signature">(stat, index)</span><span class="type-signature"> &rarr; {element}</span>
-            
-        </span>
-    </h4>
-    
-
-    
-    
-    <div class="description">
-        <p>Return KeyStats component with props based on given datas.</p>
-    </div>
-    
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-<div class="table-container">
-    <table class="params table">
-        <thead>
-        <tr>
-            
-            <th>Name</th>
-            
-
-            <th>Type</th>
-
-            
-
-            
-
-            <th class="last">Description</th>
-        </tr>
-        </thead>
-
-        <tbody>
-        
-
-            
-<tr class="deep-level-0">
-  
-      <td class="name"><code>stat</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">array</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>Stat array ['stat name','stat value']</p></td>
-</tr>
-
-
-        
-
-            
-<tr class="deep-level-0">
-  
-      <td class="name"><code>index</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">number</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>Index of stat object in stats array</p></td>
-</tr>
-
-
-        
-        </tbody>
-    </table>
-</div>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-        <p class="tag-source">
-            <a href="components_ProfileKeyStats_ProfileKeyStats.js.html" class="button">View Source</a>
-            <span>
-                <a href="components_ProfileKeyStats_ProfileKeyStats.js.html">components/ProfileKeyStats/ProfileKeyStats.js</a>, <a href="components_ProfileKeyStats_ProfileKeyStats.js.html#line28">line 28</a>
-            </span>
-        </p>
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div class='columns method-parameter'>
-        <div class="column is-2"><label>Returns:</label></div>
-        <div class="column is-10">
-            
-                    
-
-<div class="columns">
-    
-    <div class='param-desc column is-7'><p>Return React component</p></div>
-    
-    
-    <div class='column is-5 has-text-left'>
-        <label>Type: </label>
-        
-<span class="param-type">element</span>
-
-
-    </div>
-    
-</div>
-
-                
-        </div>
-    </div>
-
-
-
-
-</div>
-            
-            </div>
-        </div>
     
 
     

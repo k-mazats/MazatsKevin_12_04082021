@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> KeyStat</title>
+  <title> components/ProfileScore/ProfileScoreLegend/ProfileScoreLegend.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -77,239 +79,45 @@
         <div class="core" id="main-content-wrapper">
             <div class="content">
                 <header class="page-title">
-                    <p>Components</p>
-                    <h1>KeyStat</h1>
+                    <p>Source</p>
+                    <h1>components/ProfileScore/ProfileScoreLegend/ProfileScoreLegend.js</h1>
                 </header>
                 
 
 
 
-
-<section>
-
-<header>
     
-        <h2>
-            &ltKeyStat <i>backgroundColor</i> <i>children</i> <i>statCount</i> <i>statName</i> <i>statUnit</i> /&gt
-        </h2>
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-            <div class='vertical-section'>
-                <div class="members">
-                    <div class="member">
-                        <div class=name>
-                            <span class="tag">Constructor</span>
-                        </div>
-                        
-
-
-    
-    <h4 class="name" id="KeyStat">
-        <a class="href-link" href="#KeyStat">#</a>
-        
-        <span class="code-name">
-            
-                &ltKeyStat <i>backgroundColor</i> <i>children</i> <i>statCount</i> <i>statName</i> <i>statUnit</i> /&gt
-            
-        </span>
-    </h4>
-    
-
-    
-    
-    <div class="description">
-        <p>Component for displaying one single stat.</p>
-    </div>
-    
-
-
-
-
-
-
-
-    
-        <h5>PropTypes:</h5>
-        
-<div class="table-container">
-  <table class="params table">
-    <thead>
-    <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Required</th>
-        <th>Description</th>
-        <th class="last">Default</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-          <tr class="deep-level-0">
-            <td class="name"><code>backgroundColor</code></td>
-            <td>
-              string
-            </td>
-            <td>Yes</td>
-            <td></td>
-            <td></td>
-          </tr>
-          
-    
-          <tr class="deep-level-0">
-            <td class="name"><code>children</code></td>
-            <td>
-              element
-            </td>
-            <td>Yes</td>
-            <td></td>
-            <td></td>
-          </tr>
-          
-    
-          <tr class="deep-level-0">
-            <td class="name"><code>statCount</code></td>
-            <td>
-              number
-            </td>
-            <td>Yes</td>
-            <td></td>
-            <td></td>
-          </tr>
-          
-    
-          <tr class="deep-level-0">
-            <td class="name"><code>statName</code></td>
-            <td>
-              string
-            </td>
-            <td>Yes</td>
-            <td></td>
-            <td></td>
-          </tr>
-          
-    
-          <tr class="deep-level-0">
-            <td class="name"><code>statUnit</code></td>
-            <td>
-              string
-            </td>
-            <td>Yes</td>
-            <td></td>
-            <td></td>
-          </tr>
-          
-    
-    </tbody>
-  </table>
-</div>
-    
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-        <p class="tag-source">
-            <a href="components_ProfileKeyStats_KeyStat_KeyStat.js.html" class="button">View Source</a>
-            <span>
-                <a href="components_ProfileKeyStats_KeyStat_KeyStat.js.html">components/ProfileKeyStats/KeyStat/KeyStat.js</a>, <a href="components_ProfileKeyStats_KeyStat_KeyStat.js.html#line11">line 11</a>
-            </span>
-        </p>
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    </div>
-                </div>
-            </div>
-        
-    
-    </div>
-    
-        
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import PropTypes from 'prop-types';
+
+import './ProfileScoreLegend.css';
+
+/**
+ * Component for generating custom legend for score chart.
+ *
+ * @component
+ *
+ */
+const ProfileScoreLegend = (props) => {
+	return (
+		&lt;div>
+			&lt;div className="profile-score__legend-value">
+				{props.todayScore * 100}%
+			&lt;/div>
+			&lt;div className="profile-score__legend-text">de votre objectif&lt;/div>
+		&lt;/div>
+	);
+};
+
+ProfileScoreLegend.propTypes = {
+	todayScore: PropTypes.number,
+};
+
+export default ProfileScoreLegend;
+</code></pre>
+        </article>
+    </section>
 
 
 
